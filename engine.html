@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: hidden;overflow-x: hidden;">
+<head>
+  <meta charset="UTF-8">
+  <title>Whenite</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./Assets/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="./Assets/jquery.min.js"></script>
+  <script src="./Assets/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js" integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT" crossorigin="anonymous"></script>
+  <script  src="./script.js" type="module"></script>
+
+  <style>
+        #codebox {
+        padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: black;
+        background-color: #d6d6d6;
+        -webkit-border-radius: 0px 0px 6px 6px;
+        -moz-border-radius: 0px 0px 6px 6px;
+        border-radius: 0px 0px 6px 6px;
+        margin-bottom: 2px;
+      }
+      .codeheader {
+        padding: 5px 5px 5px 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: #fff;
+        -webkit-border-radius: 6px 6px 0px 0px;
+        -moz-border-radius: 6px 6px 0px 0px;
+        border-radius: 6px 6px 0px 0px;
+      }
+
+      #codeheader{
+        background-color: #05c9ff;
+      }
+
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #000000;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        /*--thank you pop starts here--*/
+      .thank-you-pop{
+      	width:100%;
+       	padding:20px;
+      	text-align:center;
+      }
+      .thank-you-pop img{
+      	width:76px;
+      	height:auto;
+      	margin:0 auto;
+      	display:block;
+      	margin-bottom:25px;
+      }
+
+      .thank-you-pop h1{
+      	font-size: 42px;
+          margin-bottom: 25px;
+      	color:#5C5C5C;
+      }
+      .thank-you-pop p{
+      	font-size: 20px;
+          margin-bottom: 27px;
+       	color:#5C5C5C;
+      }
+      .thank-you-pop h3.cupon-pop{
+      	font-size: 25px;
+          margin-bottom: 40px;
+      	color:#222;
+      	display:inline-block;
+      	text-align:center;
+      	padding:10px 20px;
+      	border:2px dashed #222;
+      	clear:both;
+      	font-weight:normal;
+      }
+      .thank-you-pop h3.cupon-pop span{
+      	color:#03A9F4;
+      }
+      .thank-you-pop a{
+      	display: inline-block;
+          margin: 0 auto;
+          padding: 9px 20px;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 14px;
+          background-color: #8BC34A;
+          border-radius: 17px;
+      }
+      .thank-you-pop a i{
+      	margin-right:5px;
+      	color:#fff;
+      }
+      #ignismyModal .modal-header{
+          border:0px;
+      }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-primary">
+        <a class="navbar-brand" href="index.html">Whenite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Introduction<span class="sr-only"></span></a>
+              </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="engine.html">Editor<span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Examples
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="example1.html">Example 1</a>
+          <a class="dropdown-item" href="example2.html">Example 2</a>
+          <a class="dropdown-item" href="example3.html">Example 3</a>
+        </div>
+      </li>
+
+          </ul>
+
+          <p style="width:5px"></p>
+          <div id="target_div"></div>
+          <button id="uploadButton" style="display: none;border-radius: 10%;" class="btn btn-primary my-2 my-sm-0">Upload <i class="fa fa-upload"></i></button>
+          <p style="width:5px"></p>
+          <button id="savedFiles" style="display: none;border-radius: 10%;" class="btn btn-secondary my-2 my-sm-0">Saved Diagrams <i class="fa fa-cloud"></i></button>
+          <p style="width:5px"></p>
+          <button id="saveButton" style="display: none;border-radius: 10%;" class="btn btn-warning my-2 my-sm-0">Save <i class="fa fa-save"></i></button>
+          <p style="width:5px"></p>
+          <button  id="openModal" data-toggle="modal" data-target="#myModal" style="display: none;border-radius: 10%;" class="btn btn-success my-2 my-sm-0" value="Generate">Generate <i class="fa fa-code"></i></button>
+
+        </div>
+      </nav>
+
+<div id="loadingScreen" style="background-color: white;width:100%;height:100%">
+<center><img src="./images/HassIO.png" style="width:10%;margin-top:5%"/></center>
+<center>
+<div class="loader" style="margin-top:2%">
+</div>
+<center><h4 style="margin-top:2%">Trying to connect...</h4></center>
+</center>
+
+</div>
+
+
+<div class="dock" style="float:right"></div>
+
+<!-- ZONE TO PREVIEW THE AUTOMATION THAT HAS BEEN CREATED -->
+<div style="float:left;width:28%;height:2%;text-align:center;margin-top:3px;color:#4bad00;font-size:18px">When</div>
+<div style="float:left;width:28%;height:2%;text-align:center;margin-top:3px;color:#DAA520;font-size:18px">If</div>
+<div style="float:left;width:28%;height:2%;text-align:center;margin-top:3px;color:#730d0d;font-size:18px">Then</div>
+
+<div id="previewTriggers" style="display: inline-block;white-space: pre-line;float:left;;overflow-y: auto;width:28%;height: 10%;text-align:center;margin-top:3px"></div>
+<div id="previewConditions" style="display: inline-block;white-space: pre-line;overflow-y: auto;width:28%;height: 10%;text-align:center;margin-top:3px"></div>
+<div id="previewActions" style="display: inline-block;white-space: pre-line;overflow-y: auto;width:28%;height: 10%;text-align:center;margin-top:3px"></div>
+
+<div id="rete" class="rete"></div>
+
+<span id ="services" style="width:0px" ></span>
+<span id ="entities" style="width:0px"></span>
+<span id ="aux" style="width:0px"></span>
+
+
+<!-- localStorageModal -->
+<div id="localStorageModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="width:100%">
+        <h4 class="modal-title">Saved Diagrams</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+        <div id="listOfAutomations">
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="modal fade" id="saveModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+             </div>
+
+            <div class="modal-body">
+
+		<div class="thank-you-pop">
+			<img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+			<h3>The diagram was successfully saved to your Local Storage!</h3>
+
+			</div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="width:100%">
+        <h4 class="modal-title">Generate YAML</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+        <p>Here you can identify your automation!</p>
+        <p>Name</p>
+        <textarea type="text" id="alias" placeholder="Name of the Automation"  style="width:100%"></textarea>
+        <p>Description</p>
+        <textarea type="text" id="description" placeholder="Description of the Automation" style="width:100%;height:100px"></textarea>
+
+      </div>
+      <div id="result" style="display:none">
+      <div class="modal-header" style="width:100%">
+        <h4 class="modal-title">Result</h4>
+
+      </div>
+      <div class="modal-body" style="width:100%">
+        <div class="codeheader" id="codeheader">YAML</div>
+        <div id="codebox">
+           <pre><code data-language="css" id="code"></code></pre>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" style="border-radius: 10%;" id=compile class="btn btn-success">Generate</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+Sentry.init({ dsn: 'https://252d18dd7a3b47e6bd09126c104fe269@o386806.ingest.sentry.io/5221473' });
+</script>
+
+
+  <script src='./Plugins/rete.min.js'></script>
+  <script src='./Plugins/vue.min.js'></script>
+
+  <script src='./Plugins/connection-plugin.min.js'></script>
+  <script src='./Plugins/context-menu-plugin.min.js'></script>
+
+  <script src='./Plugins/vue-render-plugin.min.js'></script>
+
+  <script src='./Plugins/alight.min.js'></script>
+  <script src='./Plugins/lodash.min.js'></script>
+  <script src='./Plugins/connection-mastery-plugin.min.js'></script>
+  <script src='./Plugins/area-plugin.min.js'></script>
+  <script src='./Plugins/dock-plugin.min.js'></script>
+
+</body>
+</html>

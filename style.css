@@ -1,0 +1,160 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.codebox {
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: black;
+  background-color: #d6d6d6;
+  -webkit-border-radius: 0px 0px 6px 6px;
+  -moz-border-radius: 0px 0px 6px 6px;
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 2px;
+}
+.codeheader {
+  padding: 5px 5px 5px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.codeheader{
+  background-color: #05c9ff;
+}
+
+
+.rete{
+  width: 75%;
+  height: 75%
+}
+
+.node .control input, .node .input-control input {
+  width: 100px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+select, input {
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  padding: 2px 6px;
+  border: 1px solid rgb(255, 255, 255);
+  font-size: 50%;
+  width: 150px;
+}
+
+.node {
+  background: rgba(65, 65, 65,1);
+  border: 2px solid  rgba(31, 32, 32, 1);
+  border-radius: 5%;
+  cursor: pointer;
+  width: 250px;
+  height: auto;
+  padding-bottom: 6px;
+  box-sizing: content-box;
+  position: relative;
+  user-select: none;
+}
+.node:hover {
+  background: rgba(65, 65, 65,1);
+}
+.node.selected {
+  background: rgba(65, 65, 65,1);
+}
+.node.if {
+  background: #DAA520;
+}
+.node.action {
+  background: #730d0d;
+}
+.node.trigger {
+  background: #4bad00;
+}
+.node .title {
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  background-color: rgba(31, 32, 32,1);
+}
+.node .output {
+  text-align: right;
+}
+.node .input {
+  text-align: left;
+}
+.node .input-title, .node .output-title {
+  vertical-align: middle;
+  color: white;
+  display: inline-block;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 16px;
+  margin: 6px;
+  line-height: 24px;
+}
+.node .input-control {
+  z-index: 1;
+  width: 80%;
+  height: 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.modal-dialog{
+  width:75%;
+  height: 75%
+}
+
+.node .control {
+  padding: 6px 18px;
+}
+.editor {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.dock {
+  overflow: auto;
+  height: 95%;
+  width: 15%;
+  border-left: solid 1px
+}
+
+.dock-item {
+  width:175px;
+  display: inline-block;
+  transform: scale(0.7);
+  opacity: 0.7;
+}
+
+.dock-item:hover {
+  opacity: 0.9;
+}
