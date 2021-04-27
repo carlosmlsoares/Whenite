@@ -7,7 +7,7 @@
  ## Basic Flow
  
  It's possible to create in a easy way a flow that can easily be converted to an automation! 
- ![Basic Flow](https://github.com/carlosmlsoares/Dissertacao/blob/master/Assets/BasicFlow.png)
+ ![Basic Flow](https://github.com/carlosmlsoares/Whenite/raw/master/Assets/BasicFlow.png)
  In the picture above, we can see a simple flow that is converted to:<br/><br/>
  - **When**:<br/>
     * ChromeCast Escritório change to **'on'**<br/>
@@ -24,7 +24,7 @@
  To help the users during the creation of the flow, an orchestrator was added that show how it's going on the creation of the automation.
  The orchestrator from the flow above shown is the following:
  
- ![Orchestrator example](https://github.com/carlosmlsoares/Dissertacao/blob/master/Assets/Orchestrator.png)
+ ![Orchestrator example](https://github.com/carlosmlsoares/Whenite/raw/master/Assets/Orchestrator.png)
  
  ## Contributors
  
